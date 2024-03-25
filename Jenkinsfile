@@ -8,7 +8,7 @@ pipeline {
     environment {
         SCANNER_HOME = tool 'sonar-scanner'
         DOCKERHUB_CREDENTIALS = credentials('Docker_hub')
-        GITHUB_REPO_URL = 'https://github.com/elisemomo/Youtube-CICD.git'
+        GITHUB_REPO_URL = 'https://github.com/curlsysolange/youtube-ci-cd-.git'
     }
     
     stages {
@@ -20,7 +20,7 @@ pipeline {
         
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/elisemomo/Youtube-CICD.git'
+                git branch: 'main', url: 'https://github.com/curlsysolange/youtube-ci-cd-.git'
             }
         }
         
@@ -34,7 +34,7 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('sonar-server') {
-                    sh "$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=youtube -Dsonar.projectKey=youtube"
+                    sh "$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Youtube -Dsonar.projectKey=Youtube"
                 }
             }
         } 
