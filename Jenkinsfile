@@ -17,7 +17,7 @@ pipeline {
                 cleanWs()
             }
         }
-        
+    } 
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/curlsysolange/youtube-ci-cd-.git'
@@ -55,8 +55,7 @@ pipeline {
                 }
             }
         }
-  }
-}
+
         stage('OWASP FILE SCAN') {
             steps {
                 dependencyCheck additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit --nvdApiKey 4bdf4acc-8eae-45c1-bfc4-844d549be812', odcInstallation: 'DP'
@@ -128,6 +127,4 @@ pipeline {
                 // Publish the results as an artifact
             }
         }
-   }
 }
-        
