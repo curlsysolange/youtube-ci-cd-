@@ -87,7 +87,8 @@ pipeline {
                     echo "Push Image to Registry"
                 }
             }
-        }           
+        } 
+             
         stage('Trivy image Scan') {
             steps {
                 script {
@@ -109,7 +110,7 @@ pipeline {
                 }
             }
         }
-        
+      /*  
       stage('Deploy to Kubernetes') {
             steps {
                 withKubeConfig([credentialsId: 'kubeconfig']) {
@@ -118,6 +119,7 @@ pipeline {
                 }
             }
       }
+      */
         stage('cluster Scan') {
             steps {
                 withKubeConfig([credentialsId: 'kubeconfig']) {
